@@ -10,7 +10,6 @@ with open(sys.argv[1], 'r') as f:
     lines = list(line for line in (l.strip() for l in f) if line)
 
 l = random.choice(lines).strip()
-print(l)
 w = random.choice(l.split())
 out = ''
 match = w.capitalize()
