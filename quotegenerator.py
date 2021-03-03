@@ -16,7 +16,7 @@ match = w.capitalize()
 
 while True:
     matching = [line for line in lines if ' ' + w + ' ' in line and line.strip() != l]
-    if(matching):
+    if(len(matching) > 1):
         matching = random.choice(matching)
         ind = matching.split().index(w) + 1
         w = matching.split()[ind]
@@ -26,5 +26,6 @@ while True:
         if('.' in w):
             break
     else:
-        break
+        l = random.choice(lines).strip()
+        w = random.choice(l.split())
 print(match)
