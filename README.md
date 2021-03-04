@@ -5,6 +5,8 @@ Generate semi-intelligible quotes from a text file.
 This script selects a random word from a file, looks for it in a different line and appends the word that succeeds it, resulting in sentences that make more sense syntactically than grammatically.
 
 ## usage
+First, install requirements with `pip install -r requirements.txt`
+
 `python quotegenerator.py <text file>`
 
 ## examples

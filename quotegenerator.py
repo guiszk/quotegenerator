@@ -1,3 +1,5 @@
+from emoji import UNICODE_EMOJI
+
 import sys
 import random
 import re
@@ -14,6 +16,14 @@ w = random.choice(l.split())
 out = ''
 match = w.capitalize()
 
+def is_emoji(s):
+    count = 0
+    for emoji in UNICODE_EMOJI:
+        count += s.count(emoji)
+        if count > 1:
+            return False
+    return bool(count)
+
 while True:
     matching = [line for line in lines if ' ' + w + ' ' in line and line.strip() != l]
     if(len(matching) > 1):
@@ -23,7 +33,7 @@ while True:
         #print(w)
         #print(matching.split()[ind-2:ind+2])
         match += ' ' + w
-        if('.' in w):
+        if('.' in w or '?' in w or is_emoji(w)):
             break
     else:
         l = random.choice(lines).strip()
